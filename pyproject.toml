@@ -1,0 +1,34 @@
+[project]
+name = "magpy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "adulib[llm]>=0.1.2",
+    "pydantic>=2.11.5",
+    "python-dotenv>=1.1.0",
+    "rich>=14.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+ignore-vcs = true
+packages = ["magpy"]
+include = [
+    "magpy/assets/**",
+    "magpy/scripts/**",
+]
+
+[dependency-groups]
+dev = [
+    "jupyterlab>=4.4.0",
+    "nblite>=0.2.0",
+    "boto3>=1.38.19",
+]
+
+[project.scripts]
+magpy = "magpy.cli.app:app"

@@ -1,0 +1,6 @@
+store_path = { parent = 'pkg_root', path = 'store' }
+caches_path = { parent = 'store', path = 'caches' }
+data_path = { parent = 'store', path = 'data' }
+misc_path = { parent = 'store', path = 'misc' }
+pre_output = { parent = 'store', path = 'pre_output' }
+output_path = { parent = 'store', path = 'output' }

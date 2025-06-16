@@ -1,0 +1,57 @@
+# %% [markdown]
+# # const
+
+# %%
+#|default_exp const
+
+# %%
+#|hide
+import nblite; from nbdev.showdoc import show_doc; nblite.nbl_export()
+
+# %%
+#|export
+from pathlib import Path
+import toml
+from typing import Optional
+from pydantic import BaseModel, ConfigDict, model_validator
+from pathlib import Path
+from importlib import resources
+import adulib, adulib.llm
+from dotenv import load_dotenv
+import magpy as proj
+
+# %%
+#|export
+from magpy.config import PathConfig, Config, get_config
+
+# %% [markdown]
+# Set up paths
+
+# %%
+#|export
+# Automaticlally set store paths based on the config
+config = get_config()
+for field in Config.model_fields:
+    if not issubclass(Config.model_fields[field].annotation, PathConfig): continue
+    locals()[field] = config.get_path(field)
+    locals()[field].mkdir(parents=True, exist_ok=True)
+
+# %%
+#|export
+scripts_path = resources.files(f'{proj.__name__}').joinpath('scripts').resolve()
+assets_path = resources.files(f'{proj.__name__}').joinpath('assets').resolve()
+
+# %% [markdown]
+# Set up default caching and LLM call logging
+
+# %%
+#|export
+adulib.caching.set_default_cache_path(caches_path / 'default')
+adulib.llm.set_call_log_save_path(store_path / 'call_log.jsonl')
+
+# %% [markdown]
+# Load environment variables
+
+# %%
+#|export
+load_dotenv()

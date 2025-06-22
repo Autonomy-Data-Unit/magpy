@@ -1,6 +1,9 @@
 export_pipeline = """
 nbs -> pts
 pts -> lib
+
+test_nbs -> test_pts
+test_pts -> test_lib
 """
 
 docs_cl="nbs"
@@ -8,9 +11,20 @@ docs_title="magpy"
 
 [cl.lib]
 path="magpy"
+format="module"
 
 [cl.nbs]
 format="ipynb"
 
 [cl.pts]
+format="percent"
+
+[cl.test_lib]
+path="tests"
+format="module"
+
+[cl.test_nbs]
+format="ipynb"
+
+[cl.test_pts]
 format="percent"

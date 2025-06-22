@@ -33,6 +33,7 @@ def extract_structured(
     paths: Optional[List[Union[str, Path]]] = None,
     schema: Dict[str, Union[Type, Field]]|Type[BaseModel] = None,
     temperature: float = None,
+    api_key: str|None = None,
 ) -> Union[Dict[str, Any], List[Dict[str, Any]]]:
     """Extract structured data from unstructured text using a target schema.
     
@@ -84,8 +85,9 @@ def extract_structured(
             model=config.get('model', 'gpt-4o'),
             temperature=config.get('temperature', 0.1),
             response_format=api_schema,
+            api_key=config.get('api_key', None),
             **{k: v for k, v in config.items() 
-               if k not in ['model', 'temperature', 'cache_enabled', 'response_format']}
+               if k not in ['model', 'temperature', 'cache_enabled', 'api_key']}
         )
         
         # Parse structured response

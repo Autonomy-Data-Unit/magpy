@@ -9,6 +9,29 @@
 pip install git+https://github.com/Autonomy-Data-Unit/magpy
 ```
 
+Execute the following commands in your terminal to quickly set up a testing environment where you can try out magpy's features:
+
+```bash
+mkdir magpy-test # Create folder to test MagPy in
+cd magpy-test
+# Download example notebooks
+curl -O https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/00_data_extraction_from_text.ipynb
+curl -O https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/01_pdfs_to_csv.ipynb
+# Create a virtual environment and install dependencies
+python -m venv venv
+source ./venv/bin/activate
+pip install git+https://github.com/Autonomy-Data-Unit/magpy
+pip install jupyterlab
+# Create a .env file in the directory
+echo "OPENAI_API_KEY=" > .env
+# Run jupyterlab
+jupyter lab
+```
+
+**Note:** To run the notebooks, you must first register for an API key from an LLM provider. In the example scripts we are using OpenAI's models, so you'll need to get an API key from https://openai.com/api/, and then paste it into the `.env` file created in one of the commands above. As Jupyter does not by default display hidden files you cannot edit `.env` from within Jupyter Lab. On Mac you can open the file by executing `open .env` in the terminal.
+<!-- #endregion -->
+
+<!-- #region -->
 ## Quick Start
 
 For detailed examples see the [examples](./nbs/examples/) folder.

@@ -4,6 +4,13 @@ import os
 from datetime import datetime
 
 # %% [markdown]
+# Load API keys from the local `.env` file
+
+# %%
+from dotenv import load_dotenv
+load_dotenv('.env', override=True)
+
+# %% [markdown]
 # Configure the LLM
 
 # %%

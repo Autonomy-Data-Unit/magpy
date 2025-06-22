@@ -1,6 +1,5 @@
 
-# nblite
-magpy/**/*.py 
+# magpy/**/*.py 
 magpy/store
 !__main__.py
 !__init__.py

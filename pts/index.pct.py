@@ -15,7 +15,7 @@ import magpy as proj
 # ## Installation
 #
 # ```bash
-# pip install magpy
+# pip install git+https://github.com/Autonomy-Data-Unit/magpy --no-cache
 # ```
 #
 # ## Quick Start

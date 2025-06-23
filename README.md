@@ -17,6 +17,11 @@ cd magpy-test
 # Download example notebooks
 curl -O https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/00_data_extraction_from_text.ipynb
 curl -O https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/01_pdfs_to_csv.ipynb
+# Download example PDF files
+mkdir charity_accounts
+curl -o "charity_accounts/3966635 2023-12-31 THE DAVID SNOWDON TRUST.pdf" https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/charity_accounts/3966635%202023-12-31%20THE%20DAVID%20SNOWDON%20TRUST.pdf
+curl -o "charity_accounts/4028313 2020-12-31 CATS IN CRISIS.pdf" https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/charity_accounts/4028313%202020-12-31%20CATS%20IN%20CRISIS.pdf
+curl -o "charity_accounts/5211224 2023-12-31 ROYAL ENGINEERS HEADQUARTER MESS.pdf" https://raw.githubusercontent.com/Autonomy-Data-Unit/magpy/refs/heads/main/nbs/examples/extract/charity_accounts/5211224%202023-12-31%20ROYAL%20ENGINEERS%20HEADQUARTER%20MESS.pdf
 # Create a virtual environment and install dependencies
 python -m venv venv
 source ./venv/bin/activate
